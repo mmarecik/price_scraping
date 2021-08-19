@@ -1,0 +1,19 @@
+{
+  "products": [
+    { "url": "https://pl.tommy.com/t-shirt-heritage-z-dekoltem-w-kszta%C5%82cie-litery-v-ww0ww24969017",
+      "price": "100"
+    },
+
+    { "url": "https://pl.tommy.com/sk%C3%B3rzany-pasek-3-5-cm-z-flag%C4%85-am0am07900bds",
+      "price": "120"
+    },
+
+    { "url": "https://www.empik.com/the-sims-4-cztery-pory-roku-ea-maxis,p1201562397,multimedia-p",
+      "price": "60"
+    },
+
+    { "url": "https://mediamarkt.pl/telefony-i-smartfony/smartfon-apple-iphone-12-pro-128gb-pacyficzny-mgmn3pm-a",
+      "price": "4100"
+    }
+  ]
+}

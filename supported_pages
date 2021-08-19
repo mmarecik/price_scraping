@@ -1,0 +1,22 @@
+{
+  "pages": [
+    { "page_name": "pl.tommy.com",
+      "price_tag": "",
+      "tag_class": ""
+    },
+    {
+      "page_name": "www.empik.com",
+      "price_tag": "",
+      "tag_class": ""
+    },
+    { "page_name": "mediamarkt.pl",
+      "price_tag": "",
+      "tag_class": ""
+    },
+    {
+      "page_name": "",
+      "price_tag": "",
+      "tag_class": ""
+    }
+  ]
+}
