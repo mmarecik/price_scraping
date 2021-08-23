@@ -1,3 +1,4 @@
+from price_parser import Price
 from bs4 import BeautifulSoup
 import requests
 import smtplib
@@ -96,16 +97,21 @@ def price_scraper(products_path, supported_pages_path):
             print(e)
             exit()
 
+        soup = BeautifulSoup(response.text, 'lxml')
+        node = soup.find(tag_name, class_=tag_class)
 
-    # #id status error > 500
-    # soup = BeautifulSoup(response.text, 'lxml')
-    #
-    # price = soup.find('span', class_='product__price').text
-    #
-    # print(price)
-    #
-    # if price <= notif_price:
-    #     # some action
+        if node is not None:
+            price_text = node.text
+        else:
+            print("Price was not found on the website. Check if tag name and class is up-to-date.")
+            break
+
+        actual_price = Price.fromstring(price_text)
+
+        print(domain)
+        print(actual_price)
+
+        #if actual_price <= price:
 
 if __name__ == "__main__":
     price_scraper('products.json', 'supported_pages.json')
