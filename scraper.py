@@ -104,7 +104,7 @@ def price_scraper(products_path, supported_pages_path):
             price_text = node.text
         else:
             print("Price was not found on the website. Check if tag name and class is up-to-date.")
-            break
+            continue
 
         actual_price = Price.fromstring(price_text)
 
