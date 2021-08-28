@@ -110,12 +110,10 @@ def price_scraper(products_path, supported_pages_path):
 
         actual_price = Price.fromstring(price_text)
         price_amount = actual_price.amount
-        # price_currency = actual_price.currency
 
         if price_amount <= price:
             msg = 'Price of a product under this address: {} has dropped to {}.'.format(url, str(price_amount))
             send_mail(body=msg)
-
 
 
 if __name__ == "__main__":
