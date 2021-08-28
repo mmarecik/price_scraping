@@ -22,7 +22,6 @@ def send_mail(gmail_user = GMAIL_USER, password = GMAIL_PASSWORD, sent_to = SENT
         server.ehlo()
         server.starttls()
         server.ehlo()
-
         server.login(gmail_user, password)
         server.sendmail(gmail_user, sent_to, email_text)
         server.quit()
@@ -44,7 +43,7 @@ def price_scraper(products_path, supported_pages_path):
     try:
         with open(products_path) as f_1:
             products_list = json.load(f_1)
-
+            
         with open(supported_pages_path) as f_2:
             webpages_list = json.load(f_2)
 
@@ -56,7 +55,6 @@ def price_scraper(products_path, supported_pages_path):
         url = product['url']
         domain = url.split('/')[2]
         price = float(product['price'])
-
 
         page_included = 0
         for page in webpages_list['pages']:
@@ -72,16 +70,15 @@ def price_scraper(products_path, supported_pages_path):
             response = input('Page has not been found. Want to add the %s to the list? Type Y if yes, N otherwise.\n>' % domain)
 
             if response == 'Y' or 'y':
-
                 tag_name = input('Enter a html tag of %s page that contains a price of product.\n>' % domain)
                 tag_class = input('Enter class of above tag.\n')
-
+                
                 webpages_list['pages'].append({
                     "page_name": domain,
                     "price_tag": tag_name,
                     "tag_class": tag_class
                 })
-
+                
                 with open(supported_pages_path, 'w') as f:
                     json.dump(webpages_list, f)
 
@@ -104,6 +101,7 @@ def price_scraper(products_path, supported_pages_path):
 
         if node is not None:
             price_text = node.text
+            
         else:
             print("Price was not found on the website. Check if tag name and class is up-to-date.")
             continue
@@ -119,7 +117,6 @@ def price_scraper(products_path, supported_pages_path):
 
 
 if __name__ == "__main__":
-
     while True:
         price_scraper('products.json', 'supported_pages.json')
         print('{}\nProgram is sleeping. Next price checking in {} minutes.'.format(datetime.now(), float(SEC_INTERVAL) / 60))
