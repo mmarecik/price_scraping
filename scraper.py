@@ -65,7 +65,6 @@ def price_scraper(products_path, supported_pages_path):
                 page_included = 1
                 break
 
-
         if page_included == 0:
             response = input('Page has not been found. Want to add the %s to the list? Type Y if yes, N otherwise.\n>' % domain)
 
