@@ -6,12 +6,12 @@ import requests
 import smtplib
 import json
 
-SEC_INTERVAL = 600
+SEC_INTERVAL = 60
 GMAIL_USER = 'your_mail_address@gmail.com'
 GMAIL_PASSWORD = 'your_mail_password'
 SENT_TO = 'target_mail_address@gmail.com'
 SUBJECT = 'Price drop noticed!'
-BODY = 'Price of one of observed products has dropped.'
+BODY = 'One of the observed products has got cheaper.'
 
 def send_mail(gmail_user = GMAIL_USER, password = GMAIL_PASSWORD, sent_to = SENT_TO, subject = SUBJECT, body = BODY):
 
@@ -68,7 +68,7 @@ def price_scraper(products_path, supported_pages_path):
         if page_included == 0:
             response = input('Page has not been found. Want to add the %s to the list? Type Y if yes, N otherwise.\n>' % domain)
 
-            if response == 'Y' or 'y':
+            if response.upper() == 'Y':
                 tag_name = input('Enter a html tag of %s page that contains a price of product.\n>' % domain)
                 tag_class = input('Enter class of above tag.\n')
                 
@@ -81,7 +81,7 @@ def price_scraper(products_path, supported_pages_path):
                 with open(supported_pages_path, 'w') as f:
                     json.dump(webpages_list, f)
 
-            elif str.lower(response) == 'n':
+            elif response.lower() == 'n':
                 exit()
 
             else:
@@ -102,7 +102,7 @@ def price_scraper(products_path, supported_pages_path):
             price_text = node.text
             
         else:
-            print("Price was not found on the website. Check if tag name and class is up-to-date.")
+            print("Price was not found on the website: {}. Check if tag name and class is up-to-date." .format(url))
             continue
 
         actual_price = Price.fromstring(price_text)
@@ -114,6 +114,7 @@ def price_scraper(products_path, supported_pages_path):
 
 
 if __name__ == "__main__":
+
     while True:
         price_scraper('products.json', 'supported_pages.json')
         print('{}\nProgram is sleeping. Next price checking in {} minutes.'.format(datetime.now(), float(SEC_INTERVAL) / 60))

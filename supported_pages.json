@@ -3,5 +3,6 @@
   {"page_name": "mediamarkt.pl", "price_tag": "div", "tag_class": "m-priceBox_price"},
   {"page_name": "www.empik.com", "price_tag": "div", "tag_class": "productPriceInfo__wrapper"},
   {"page_name": "www.morele.net", "price_tag": "div", "tag_class": "product-price"},
+  {"page_name": "www.x-kom.pl", "price_tag": "div", "tag_class": "n4n86h-4 eKNYud"},
   {"page_name": "www.ceneo.pl", "price_tag": "span", "tag_class": "price-format nowrap"}]
 }
