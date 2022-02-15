@@ -26,4 +26,4 @@ At the moment, the program accepts only the following websites:<br />
 :white_check_mark: www.ceneo.pl<br />
 :white_check_mark: https://pl.tommy.com/kobiety<br />
 
-but you can extend the list above easily by adding new domain string and information about its html tag that contains prices of products.
+but you can extend the list above easily by adding new domain string and information about its html tag that contains prices of products in json file.
